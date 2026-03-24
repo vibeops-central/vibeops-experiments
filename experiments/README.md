@@ -1,25 +1,31 @@
-# Experiments
+# VibeOps Experiments
 
-This folder contains VibeOps experiments — structured tests that validate changes to AGENTS.md, Skills, or the benchmark before they're merged.
+Structured experiments that validate changes to AGENTS.md, Skills, or the benchmark before they're merged.
 
 ## Structure
 
+Each experiment has:
+- `README.md` — hypothesis, method, success criteria (the experiment spec)
+- `runs/` — numbered runs with results
+
 ```
 experiments/
-  001-agents-md-v2/       — first validated experiment
-  002-skills-split/       — in progress
-  ...
+  agents-md-v2/
+    README.md              — experiment spec
+    runs/
+      001-gotchas-validation/
+        results.md
+
+  skills-modularisation/
+    README.md              — experiment spec
+    runs/
+      001-initial-split/
+      002-skill-md-format/
+      003-native-loading/
 ```
 
-## What Goes in an Experiment
+## Conventions
 
-Each experiment folder contains:
-- `hypothesis.md` — what we're testing and why
-- `results.md` — what happened, pass/fail, evidence
-- `diff.md` — what changed in AGENTS.md or Skills as a result
-
-## Convention
-
-- Experiments are numbered sequentially
-- A merged experiment = validated change
-- A failed experiment = its findings still get documented (failures are data)
+- New experiment → new folder with `README.md` describing hypothesis + method
+- New run → add numbered folder under `runs/` with results
+- Failed runs still get documented — failures are data
